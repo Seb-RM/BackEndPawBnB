@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { DB_HOST, DB_NAME, DB_PASSWORD, DB_USER, NODE_ENV } = process.env;
+const { DB_HOST, DB_NAME, DB_PASSWORD, DB_USER, NODE_ENV, DEPLOY_DB_URL } = process.env;
 const BookingsModel = require("./models/BookingsModel");
 const DogSittersModel = require("./models/DogSittersModel");
 const DogsModel = require("./models/DogsModel");
@@ -11,22 +11,10 @@ const ReviewsModel = require('./models/ReviewsModel.js');
 
 let sequelize =
   // process.env.NODE_ENV === "production"
-     new Sequelize({
-        database: "railway",
-        username: "postgres",
-        password: "bdaBGF66ffGg5ecB3**6B-Ag54EfAC4c",
-        host: "viaduct.proxy.rlwy.net",
-        port: 11376,
-        dialect: "postgres",
-        dialectOptions: {
-          ssl: {
-            require: true,
-            rejectUnauthorized: false,
-          },
-        },
-        logging: false,
-        native: false,
-      })
+     new Sequelize(
+        DEPLOY_DB_URL,
+        { logging: false, native: false }
+      )
   //   :
   // new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
   //   logging: false,
