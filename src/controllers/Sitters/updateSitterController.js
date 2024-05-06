@@ -92,12 +92,12 @@ const updateSitter = async ({
     });
     updatedFields.photoProfile = uploadedProfileImg.secure_url;
   }
-
+console.log(findSitter.name)
   // Si existe photos
   if (photos) {
     const uploadedGallery = await cloudinary.uploader.upload(photos, {
       upload_preset: "PawBnB_Gallery",
-      public_id: `${name}_Gallery`,
+      public_id: `${findSitter.name}_Gallery`,
       allowed_formats: ["png", "jpg", "jpeg", "svg", "ico", "jfif", "webp"],
     });
 
