@@ -36,7 +36,7 @@ const updateOwner = async (
   if (photo) {
     const uploadedProfileImg = await cloudinary.uploader.upload(photo, {
       upload_preset: "PawBnB_Profile",
-      public_id: `${name}_imgProfile`,
+      public_id: `${id}_${findSitter.name}_imgProfile`,
       allowed_formats: ["png", "jpg", "jpeg", "svg", "ico", "jfif", "webp"],
     });
     updatedFields.photo = uploadedProfileImg.secure_url;

@@ -97,7 +97,7 @@ console.log(findSitter.name)
   if (photos) {
     const uploadedGallery = await cloudinary.uploader.upload(photos, {
       upload_preset: "PawBnB_Gallery",
-      public_id: `${id}_${findSitter.name}_imgProfile_${findSitter.photos.length+1}`,
+      public_id: `${id}_${findSitter.name}_galleryimg_${findSitter.photos.length+1}`,
       allowed_formats: ["png", "jpg", "jpeg", "svg", "ico", "jfif", "webp"],
     });
 
